@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ImageController extends Controller
 {
@@ -22,7 +23,6 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'price' => 'required|numeric',
             'image' => 'required|image',
         ]);
 
@@ -30,7 +30,6 @@ class ImageController extends Controller
 
         Image::create([
             'path' => $imagePath,
-            'price' => $request->input('price'),
         ]);
 
         return redirect()->route('images.index')->with('success', 'Image uploaded successfully.');
@@ -40,7 +39,9 @@ class ImageController extends Controller
         $image=Image::findOrfail($id);
         $image->quantity=$request->quantity;
             $image->total =$request->quantity * 5950;
+            $image->reciet=Str::random(10);
             $image->save();
         return view('motors.purchase',compact('image'));
     }
+
 }

@@ -9,16 +9,35 @@
 <body>
     <form action="{{ route('prof.store',$user->id) }}" method="POST">
         @csrf
-        <label for="phone">Enter Your Phone:</label>
+        <label for="FullName">ادخل اسمك بالكامل :</label>
+        <input type="text" name="FullName" required>
+
+        <label for="phone">ادخل هاتفك:</label>
         <input type="string" name="phone" required>
 
-        <label for="info">Enter Your ID:</label>
+        <label for="info">ادخل رقم الهوية:</label>
         <input type="string" name="info" required>
 
-        <label for="FullName">Enter Your FullName:</label>
-        <input type="text" name="FullName" required>
 
         <button type="submit">Upload</button>
     </form>
+    <style>
+body{
+    background-color: #33FFBD;
+}
+        input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #4CAF50;
+}
+    </style>
 </body>
 </html>

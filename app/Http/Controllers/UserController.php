@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\User;
 class UserController extends Controller
@@ -19,8 +19,9 @@ class UserController extends Controller
         $user->info=$request->info;
         $user->phone=$request->phone;
         $user->FullName=$request->FullName;
+        $randomCode = Str::random(10);
+        $user->reciet=$randomCode;
         $user->save();
         return view('prof.index',compact('user'));
     }
-
 }

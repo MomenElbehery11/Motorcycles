@@ -170,8 +170,5 @@ label {
   background-color: #e91e63;
   border-color: #e91e63;
 }
-@media all and (max-width:500px){
-    
-}
 </style>
 </html>

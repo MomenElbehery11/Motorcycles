@@ -16,7 +16,8 @@ class CreateImagesTable extends Migration
             $table->decimal('price', 8, 2)->default(5950);
             $table->integer('quantity')->default(0);
             $table->decimal('total', 8, 2)->default(0);
-            
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
+            $table->string('reciet')->default('abc');
 
         });
     }

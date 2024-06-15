@@ -17,4 +17,7 @@ class Image extends Model
 
     // If you have timestamps, you can leave this as is. Otherwise, set to false.
     public $timestamps = true;
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
