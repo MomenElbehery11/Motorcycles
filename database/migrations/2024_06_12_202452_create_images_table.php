@@ -13,7 +13,7 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->string('path')->default('abc');
             $table->timestamps();
-            $table->decimal('price', 8, 2)->default(5950);
+            $table->decimal('price', 8, 2)->default(0);
             $table->integer('quantity')->default(0);
             $table->decimal('total', 8, 2)->default(0);
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
