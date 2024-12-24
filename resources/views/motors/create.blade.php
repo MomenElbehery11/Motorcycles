@@ -6,6 +6,10 @@
     <label for="image">Image:</label><br>
     <input type="file" name="image" required><br><br>
 
+    
+    <label for="price">price:</label><br>
+    <input type="number" name="price" required><br><br>
+
     <button type="submit">Upload</button>
 </form>
 <style>
