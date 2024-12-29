@@ -33,5 +33,5 @@ Route::match(['get', 'post'], '/images/{id}/purchase', [ImageController::class, 
 
 Route::get('prof/create/{id}', [UserController::class, 'create'])->name('prof.create');
 Route::get('prof/index/{id}', [UserController::class, 'index'])->name('prof.index');
-Route::post('prof/store/{userId}/{imageId}', [UserController::class, 'store'])->name('prof.store');
+Route::post('prof/store/{userId}', [UserController::class, 'store'])->name('prof.store');
 
