@@ -8,11 +8,11 @@
 </head>
 <body>
     <div class="d1">
-<h1>مرحبا, {{$user->FullName}}</h1>
+<h1>مرحبا, {{$user->name}}</h1>
 <h2>{{$user->email}}</h2>
 <h2>الهاتف:     {{$user->phone}}</h2>
 <h2>رقم الهوية الوطنية :    {{$user->info}}</h2>
-<h2>الايصال:    {{$user->reciet}}</h2>
+{{-- <h2>الايصال:    {{$user->reciet}}</h2> --}}
 <h1 class="a1"><a href="{{route('images.index')}}" role="button"> جميع المنتجات</a></h1>
     </div>
 <h1 class="a1"><a href="{{route('prof.create',$user->id)}}" role="button"> تعديل البيانات الشخصية </a></h1>
