@@ -18,7 +18,7 @@ class UserController extends Controller
         $user=User::findOrfail($id);
         $user->info=$request->info;
         $user->phone=$request->phone;
-        $user->FullName=$request->FullName;
+        $user->name=$request->name;
         $randomCode = Str::random(10);
         $user->reciet=$randomCode;
         $user->save();
