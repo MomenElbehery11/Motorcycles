@@ -26,6 +26,12 @@
         @csrf
         <label for="image">Select an image:</label>
         <input type="file" name="image" id="image" required>
+
+        
+        <label for="price">price:</label>
+        <input type="number" name="price" required><br><br>
+
+
         <button type="submit">Upload</button>
     </form>
 
@@ -33,6 +39,7 @@
     @foreach ($images as $image)
         <div>
             <img src="{{ asset('storage/' . $image->path) }}" class="d1"  width="250" height="250" alt="Uploaded Image">
+            <h2>{{$image->price}} ريال سعودي</h2>
         </div>
     @endforeach
     <a href="{{route('images.index')}}" class="button-3d">جميع الدراجات النارية</a>
