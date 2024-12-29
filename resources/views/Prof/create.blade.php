@@ -9,8 +9,8 @@
 <body>
     <form action="{{ route('prof.store',$user->id) }}" method="POST">
         @csrf
-        <label for="FullName">ادخل اسمك بالكامل :</label>
-        <input type="text" name="FullName" required>
+        <label for="name">ادخل اسمك بالكامل :</label>
+        <input type="text" name="name" required>
 
         <label for="phone">ادخل هاتفك:</label>
         <input type="string" name="phone" required>
