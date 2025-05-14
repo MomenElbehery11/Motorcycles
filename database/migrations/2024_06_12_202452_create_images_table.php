@@ -10,16 +10,13 @@ class CreateImagesTable extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id();
-            $table->string('path')->nullable();
-            $table->timestamps();
-            $table->decimal('price', 8, 2)->nullable();
-            $table->integer('quantity')->nullable();
-            $table->decimal('total', 8, 2)->nullable();
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
-            $table->string('reciet')->nullable();
+    $table->id();
+    $table->string('path')->nullable();
+    $table->decimal('price', 8, 2)->nullable();
+    $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade'); // اللي رفع الصورة
+    $table->timestamps();
+});
 
-        });
     }
 
     public function down()

@@ -1,4 +1,5 @@
-<div class="d1">
+<div class="d1" >
+    <a href="{{route('image.form')}}" role="button" style="color:white">ادخل صورة الدراجة النارية</a>
     @if($user->profile)
         <h1>مرحبا, {{$user->profile->name}}</h1>
         <h2>{{$user->email}}</h2>
@@ -14,6 +15,14 @@
 </div>
 
 <h1 class="a1"><a href="{{route('prof.create', auth()->user()->id)}}" role="button"> تعديل البيانات الشخصية </a></h1>
+@auth
+    @if(auth()->user()->role == 'admin')
+        <div class="d2">
+            <a href="{{ route('adminpage') }}" role="button">للادمن فقط</a>
+        </div>
+    @endif
+@endauth
+
 <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
 
@@ -68,5 +77,23 @@
             background-color: #0d74d1;
             transform: scale(1.05);
         }
+    .d2{
+        text-align: center;
+    }
+    a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
 
+a:hover {
+  background-color: #45a049;
+}
     </style>

@@ -12,7 +12,7 @@ class ImageUploadController extends Controller
 {
     $request->validate([
         'image' => 'required|image',
-        'price' => 'required|numeric|min:0',
+        'price' => 'required|numeric|min:0|max:9999999999',
     ]);
 
     $imagePath = $request->file('image')->store('uploads', 'public');

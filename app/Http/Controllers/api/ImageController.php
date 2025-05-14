@@ -31,15 +31,4 @@ class ImageController extends Controller
 
         return response()->json(['message' => 'Image uploaded successfully', 'image' => $image], 201);
     }
-
-    public function purchase($id, Request $request)
-    {
-        $image = Image::findOrFail($id);
-        $image->quantity = $request->input('quantity');
-        $image->total = $image->quantity * $image->price;
-        $image->reciet = Str::random(10); // Generate receipt code
-        $image->save();
-
-        return response()->json(['message' => 'Purchase successful', 'image' => $image]);
-    }
 }

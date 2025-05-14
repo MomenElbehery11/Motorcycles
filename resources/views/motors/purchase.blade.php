@@ -7,8 +7,8 @@
 </head>
 <body>
     <div class="d1">
-    <h1>المبلغ النهائي : {{$image->total}} ريال سعودي</h1>
-    <h1>الايصال : {{$image->reciet}}</h1>
+    <h1>المبلغ النهائي : {{$purchase->total}} ريال سعودي</h1>
+    <h1> {{$purchase->reciet}} الإيصال</h1>
     <h1></h1>
 </div>
 <a href="{{route('images.index')}}" class="button-float">جميع الدراجات النارية</a>

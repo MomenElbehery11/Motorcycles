@@ -13,7 +13,7 @@ class Image extends Model
     protected $table = 'images';
 
     // Specify the fillable fields
-    protected $fillable = ['path','price','reciet','quantity','total'];
+    protected $fillable = ['path','price','user_id'];
 
     // If you have timestamps, you can leave this as is. Otherwise, set to false.
     public $timestamps = true;

@@ -64,17 +64,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function reciets(): HasMany
-{
-    return $this->hasMany(Image::class, 'user_id');
-}
-public function purchasedImages()
-{
-    return $this->hasMany(Image::class, 'user_id');
-}
 public function profile()
 {
     return $this->hasOne(Profile::class);
+}
+public function purchases()
+{
+    return $this->hasMany(Purchase::class);
 }
 
 }

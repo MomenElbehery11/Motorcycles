@@ -6,6 +6,9 @@ use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PurchaseController;
+use App\Models\Purchase;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -15,8 +18,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
+    Route::get('/dashboard/{id}', function () {
+        $user = auth()->user();
+        return view('prof.index',compact('user'));
     })->name('dashboard');
 });
 
@@ -42,8 +46,9 @@ Route::middleware('auth:sanctum')->group(function () {
         ->name('images.store');
 
     // شراء صورة
-    Route::match(['get', 'post'], '/images/{id}/purchase', [ImageController::class, 'purchase'])
-        ->name('images.purchase');
+  Route::post('/images/{id}/purchase', [PurchaseController::class, 'store'])
+    ->name('images.purchase');
+
 
     // عرض بروفايل المستخدم
     Route::get('prof/index/{id}', [ProfileController::class, 'index'])
@@ -51,13 +56,13 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::get('/prof/create/{id}', [ProfileController::class, 'create'])
-    ->middleware('auth') // مهم جداً
+    ->middleware('auth')
     ->name('prof.create');
 
 Route::post('/prof/store/{id}', [ProfileController::class, 'storeProf'])
-->name('prof.store')->middleware('auth');
+    ->name('prof.store')->middleware('auth');
 
 
-    Route::get('adminpage', [HomeController::class, 'page'])
+Route::get('adminpage', [HomeController::class, 'page'])
     ->middleware('admin')
     ->name('adminpage');
