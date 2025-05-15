@@ -8,6 +8,6 @@ class CustomRegisterResponse implements RegisterResponseContract
 {
     public function toResponse($request)
     {
-        return redirect()->route('dashboard', auth()->id()); // بيوجه المستخدم بعد التسجيل
+        return redirect()->route('dashboard'); // من غير ID برضو
     }
 }

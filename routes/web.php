@@ -9,20 +9,36 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseController;
 use App\Models\Purchase;
 
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        $user = auth()->user();
+        return view('prof.index', compact('user'));
+    })->name('dashboard');
+
+    // هنا مش محتاج تضيف logout route يدوي
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+// routes/web.php أو routes الخاصة بالـ views
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard/{id}', function () {
+    Route::get('/dashboard', function () {
         $user = auth()->user();
-        return view('prof.index',compact('user'));
+        return view('prof.index', compact('user'));
     })->name('dashboard');
 });
+
 
 Route::get('/upload', [ImageUploadController::class, 'index'])
     ->middleware('auth')

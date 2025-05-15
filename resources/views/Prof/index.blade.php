@@ -1,3 +1,10 @@
+<form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" class="btn btn-danger">
+        تسجيل الخروج
+    </button>
+</form>
+
 <div class="d1" >
     <a href="{{route('image.form')}}" role="button" style="color:white">ادخل صورة الدراجة النارية</a>
     @if($user->profile)
@@ -96,4 +103,31 @@
 a:hover {
   background-color: #45a049;
 }
+
+  .btn-danger {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    border: none;
+    padding: 12px 28px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    box-shadow: 0 6px 20px rgba(255, 75, 43, 0.6);
+}
+
+.btn-danger:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 10px rgba(255, 75, 43, 0.4);
+}
+
+</style>
+
     </style>
